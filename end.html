@@ -64,21 +64,31 @@
 
     <main class="text-center w-full p-10 mt-16">
         <h1 class="text-white text-3xl font-bold uppercase">Félicitations !</h1>
-        <p class="text-white text-sm">Votre score final est : <span id="finalScore">0</span></p>
+        <p class="text-white text-sm">Votre score final est : <span id="finalScore">0</span>/10</p>
+        
+        <!-- Last score -->
+        <div id="last-score-container" style="display: none;">
+            <p class="text-white text-sm">Score précédent : <span id="lastScore">0</span></p>
+        </div>
 
-            <hr class="my-5">
+        <hr class="my-5">
 
         <p class="text-white text-xl font-semibold">Résultats :</p>
-
-            <hr class="my-5">
-
+        
+        <hr class="my-5">
+        
         <ul>
             <li class="text-white text-sm">Réponses correctes : <span id="correct-answers">0</span></li>
             <li class="text-white text-sm">Réponses incorrectes : <span id="incorrect-answers">0</span></li>
         </ul>
-
+        
+        <hr class="my-5">
+        
+        <p class="text-white text-xl font-semibold">Niveau : <span id="level">A1</span></p>
+        
         <a href="game.html"><button class="text-sky-500 bg-white w-56 p-2 rounded-md uppercase font-bold mt-10 duration-300 hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105">Redémarrer le quiz ?</button></a>
     </main>
+
     <script src="end.js"></script>
 </body>
 </html>

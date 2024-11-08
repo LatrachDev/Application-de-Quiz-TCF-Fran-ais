@@ -106,6 +106,7 @@ startGame = () => {
 getNewQuestion = () =>{
     if(availableQuestions.length === 0 || questionCounter >= maxQuestions){
         localStorage.setItem("mostRecentScore", score);
+        
         // go to the end of the page
         return window.location.assign("/end.html")
     }
@@ -127,6 +128,9 @@ getNewQuestion = () =>{
     acceptingAnswers = true;
 };
 
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if(!acceptingAnswers) return;
@@ -144,8 +148,14 @@ choices.forEach(choice => {
         const classToApply = selectedAnswer == currentQuestions.answer ? 'correct' : 'incorrect';
 
         if(classToApply === 'correct') {
+            correctAnswers++;
             incrementScore(correctBonus);
+        } else {
+            incorrectAnswers++;
         }
+
+        localStorage.setItem("correctAnswers", correctAnswers);
+        localStorage.setItem("incorrectAnswers", incorrectAnswers);
 
         const choiceButton = selectedChoice.closest("button");
         choiceButton.classList.add(classToApply);
