@@ -1,0 +1,14 @@
+button.correct p{
+    color: white;
+}
+button.correct{
+    background-color: #3DF600 !important;
+}
+
+button.incorrect {
+    background-color: red !important;
+}
+button.incorrect p{
+    color: white;
+}
+
