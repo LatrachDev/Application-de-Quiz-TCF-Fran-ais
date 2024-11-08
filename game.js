@@ -99,6 +99,7 @@ startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
+
     // console.log(availableQuestions);
     getNewQuestion();
 };
@@ -118,6 +119,7 @@ getNewQuestion = () =>{
     currentQuestions = availableQuestions[questionIndex];
     question.innerHTML = currentQuestions.question;
 
+    
     choices.forEach(choice => {
         const number = choice.dataset['number'];
         choice.innerText = currentQuestions['choice' + number];
@@ -130,6 +132,7 @@ getNewQuestion = () =>{
 
 let correctAnswers = 0;
 let incorrectAnswers = 0;
+const nextButton = document.getElementById("nextButton");
 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
@@ -160,18 +163,34 @@ choices.forEach(choice => {
         const choiceButton = selectedChoice.closest("button");
         choiceButton.classList.add(classToApply);
 
-        setTimeout( () => {
-            selectedChoice.parentElement.classList.remove(classToApply);
-            getNewQuestion();
-        }, 2000);
+        // show the suivant button
+        nextButton.classList.remove("hidden");
+
+        // setTimeout( () => {
+        //     selectedChoice.parentElement.classList.remove(classToApply);
+        //     // getNewQuestion();
+        // }, 2000);
 
     });
+});
+
+nextButton.addEventListener("click", () => {
+    nextButton.classList.add("hidden");
+
+    choices.forEach(choice => {
+        choice.closest("button").classList.remove("correct", "incorrect");
+    })
+
+    getNewQuestion();
 });
 
 incrementScore = num => {
     score += num;
     scoreText.innerText = score;
+    // testing
+    
 };
+
 
 
 
