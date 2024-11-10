@@ -2,7 +2,7 @@ button.correct p{
     color: white;
 }
 button.correct{
-    background-color: #3DF600 !important;
+    background-color: #2CBF00 !important;
 }
 
 button.incorrect {
@@ -11,4 +11,3 @@ button.incorrect {
 button.incorrect p{
     color: white;
 }
-

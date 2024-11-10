@@ -166,11 +166,6 @@ choices.forEach(choice => {
         // show the suivant button
         nextButton.classList.remove("hidden");
 
-        // setTimeout( () => {
-        //     selectedChoice.parentElement.classList.remove(classToApply);
-        //     // getNewQuestion();
-        // }, 2000);
-
     });
 });
 
@@ -190,9 +185,5 @@ incrementScore = num => {
     // testing
     
 };
-
-
-
-
 
 startGame();

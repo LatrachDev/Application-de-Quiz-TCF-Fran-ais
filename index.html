@@ -3,70 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="Participez au quiz TCF pour tester vos connaissances en français. Découvrez votre niveau de maîtrise, de A1 à C2, et progressez avec l'Institut Balzac.">
+    <meta name="keywords" content="Quiz TCF, test de français, niveau de français, évaluation de langue, Institut Balzac, test TCF, niveau A1 C2, apprendre français">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz TCF Français - Testez et Évaluez Votre Niveau de Langue | Institut Balzac</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="tailwind.js"></script>
 </head>
-<body class="bg-sky-500">
+<body class="bg-sky-700">
+    
     <header class="flex justify-between items-center py-5 px-5">
+
         <img class="w-36" src="Images/Balzac-logo.png" alt="Balzac-logo">
 
-        <!-- Desktop nav -->
-        <nav class="hidden md:block">
-            <ul class="flex text-white gap-5">
-                <li class="mx-2"><a class="font-semibold capitalize duration-300 hover:border-b-4" href="index.html">Home</a></li>
-                <li class="mx-2"><a class="font-semibold capitalize duration-300 hover:border-b-4" href="#contact">Contact</a></li>
-                <li class="mx-2"><a class="font-semibold capitalize duration-300 hover:border-b-4" href="#about">About</a></li>
-            </ul>
-        </nav>
-
-        <!-- Humberger Icon for mobile -->
-        <div id="bar" class="block text-white md:hidden text-2xl cursor-pointer">
-            <i class="fas fa-bars"></i>
-        </div>
+        <i class="fa-solid fa-circle-info text-white text-2xl"></i>
     </header>
 
-    <!-- Off-Screen Menu (for mobile) -->
-    <div id="off-screen-menu" class="fixed top-0 right-[-100%] h-screen w-full max-w-[450px] bg-sky-500 text-white flex flex-col justify-center items-center text-center text-xl gap-5 uppercase transition-all duration-300 z-[1]">
-        
-        <!-- Close Button -->
-        <div id="close" class="absolute top-5 right-5 text-2xl cursor-pointer text-white">
-            <i class="fas fa-times"></i>
-        </div>
-
-        <ul class="space-y-4">
-            <li><a class="font-semibold capitalize" href="index.html" class="unset">Home</a></li>
-            <li><a class="font-semibold capitalize" href="#contact" class="unset">Contact</a></li>
-            <li><a class="font-semibold capitalize" href="#about" class="unset">About</a></li>
-        </ul>
-    </div>
-
-    <script>
-        const hamMenu = document.getElementById("bar");
-        const closeMenu = document.getElementById("close");
-        const offScreenMenu = document.getElementById("off-screen-menu");
-
-        // Show menu
-        hamMenu.addEventListener("click", () =>{
-            offScreenMenu.classList.add('right-0');
-            offScreenMenu.classList.remove('right-[-100%]');
-        });
-
-        // Hide menu
-        closeMenu.addEventListener("click", () =>{
-            offScreenMenu.classList.add('right-[-100%]');
-            offScreenMenu.classList.remove('right-0');
-        }) 
-    </script>
-
     <main class="text-center w-full p-10 mt-16 md:w-6/12 lg:w6/12 mx-auto">
+
         <h1 class="text-white text-3xl font-bold uppercase">Bienvenue à l'Institut Balzac !</h1>
-        <p class="text-white text-sm">Ce test interactif est conçu pour évaluer vos connaissances en français et déterminer votre niveau actuel de maîtrise de la langue.</p>
-        <a href="game.html"><button class="text-sky-500 bg-white w-56 p-2 rounded-md uppercase font-bold mt-10 duration-300 hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105">Démarrer le quiz</button></a>
+        <p class="text-white mt-3">Ce test interactif est conçu pour évaluer vos connaissances en français et déterminer votre niveau actuel de maîtrise de la langue.</p>
+        <a href="game.html"><button class="text-white bg-orange-500 w-56 p-2 rounded-md uppercase font-bold mt-10 duration-300 hover:shadow-lg hover:scale-105">Démarrer le quiz</button></a>
+        <p class="text-white text-base mt-5 hidden" id="scoreDisplay">Votre score précédent est : <span id="finalScore">0</span>/10</p>
+    
     </main>
+
+    <script src="end.js"></script>
+    <script>
+        if (localStorage.getItem("showScore") === "true") {
+            document.getElementById("scoreDisplay").classList.remove("hidden");
+        }
+    </script>
 </body>
 </html>
